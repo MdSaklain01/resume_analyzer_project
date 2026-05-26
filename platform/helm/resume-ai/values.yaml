@@ -3,7 +3,7 @@ namespace: resume-ai
 api:
   replicaCount: 2
   image:
-    repository: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-api
+    repository: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-api
     tag: latest
     pullPolicy: IfNotPresent
   env:
@@ -21,7 +21,7 @@ api:
 web:
   replicaCount: 2
   image:
-    repository: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-web
+    repository: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-web
     tag: latest
     pullPolicy: IfNotPresent
   service:

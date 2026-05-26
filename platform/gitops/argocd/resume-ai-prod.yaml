@@ -6,7 +6,7 @@ metadata:
 spec:
   project: resume-ai
   source:
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO.git
+    repoURL: https://github.com/MdSaklain01/Resume_Analyzer_Project.git
     targetRevision: main
     path: platform/helm/resume-ai
     helm:
@@ -15,9 +15,9 @@ spec:
         - values-prod.yaml
       parameters:
         - name: api.image.repository
-          value: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-api
+          value: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-api
         - name: web.image.repository
-          value: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-web
+          value: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-web
   destination:
     server: https://kubernetes.default.svc
     namespace: resume-ai-prod
