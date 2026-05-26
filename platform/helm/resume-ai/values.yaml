@@ -1,0 +1,41 @@
+namespace: resume-ai
+
+api:
+  replicaCount: 2
+  image:
+    repository: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-api
+    tag: latest
+    pullPolicy: IfNotPresent
+  env:
+    environment: production
+    allowedOrigins: "*"
+    redisUrl: redis://resume-ai-redis:6379/0
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+web:
+  replicaCount: 2
+  image:
+    repository: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-web
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: LoadBalancer
+    port: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+redis:
+  enabled: true
+  image: redis:7-alpine
+

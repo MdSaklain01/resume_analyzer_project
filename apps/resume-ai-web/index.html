@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="intro">
+          <p class="eyebrow">FastAPI + EKS + Argo CD</p>
+          <h1>AI Resume Analyzer</h1>
+          <p>
+            Compare your resume with a job description, get an ATS-style score,
+            and turn the feedback into stronger resume bullets.
+          </p>
+        </div>
+
+        <form id="analyze-form" class="panel">
+          <label>
+            Role title
+            <input id="role-title" name="role_title" value="Backend Developer" />
+          </label>
+          <label>
+            Resume text
+            <textarea id="resume-text" name="resume_text" rows="10">Python developer built FastAPI REST APIs with Docker, Redis, AWS EKS, Terraform, Argo CD, Prometheus, Grafana and GitHub Actions CI/CD.</textarea>
+          </label>
+          <label>
+            Job description
+            <textarea id="job-description" name="job_description" rows="10">We need a backend developer with Python, FastAPI, Docker, Kubernetes, AWS EKS, Redis, CI/CD, monitoring, Prometheus, Grafana and REST API experience.</textarea>
+          </label>
+          <button type="submit">Analyze Resume</button>
+        </form>
+      </section>
+
+      <aside class="results">
+        <section class="score-card">
+          <span id="score">--</span>
+          <p id="verdict">Run an analysis to see your score.</p>
+        </section>
+
+        <section class="panel compact">
+          <h2>Matched Keywords</h2>
+          <div id="matched" class="chips"></div>
+        </section>
+
+        <section class="panel compact">
+          <h2>Missing Keywords</h2>
+          <div id="missing" class="chips muted"></div>
+        </section>
+
+        <section class="panel compact">
+          <h2>Improvements</h2>
+          <ul id="improvements"></ul>
+        </section>
+
+        <section class="panel compact">
+          <h2>Chatbot</h2>
+          <div class="chat-row">
+            <input id="chat-message" value="What keywords am I missing?" />
+            <button id="chat-button" type="button">Ask</button>
+          </div>
+          <p id="chat-answer" class="chat-answer">Ask a resume or deployment question.</p>
+        </section>
+      </aside>
+    </main>
+
+    <script>
+      window.API_BASE_URL =
+        window.API_BASE_URL || (window.location.port === "8080" ? "http://127.0.0.1:8000" : "");
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

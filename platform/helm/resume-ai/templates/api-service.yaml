@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: resume-ai-api
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/component: api
+    {{- include "resume-ai.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+  selector:
+    app.kubernetes.io/component: api
+    app.kubernetes.io/name: {{ include "resume-ai.name" . }}
+

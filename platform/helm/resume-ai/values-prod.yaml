@@ -1,0 +1,14 @@
+namespace: resume-ai-prod
+
+api:
+  replicaCount: 2
+  image:
+    tag: prod
+  env:
+    environment: production
+
+web:
+  replicaCount: 2
+  image:
+    tag: prod
+

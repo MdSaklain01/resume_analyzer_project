@@ -1,0 +1,14 @@
+namespace: resume-ai-staging
+
+api:
+  replicaCount: 1
+  image:
+    tag: staging
+  env:
+    environment: staging
+
+web:
+  replicaCount: 1
+  image:
+    tag: staging
+

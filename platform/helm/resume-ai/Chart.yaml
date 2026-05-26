@@ -1,0 +1,7 @@
+apiVersion: v2
+name: resume-ai
+description: AI Resume Analyzer API, frontend, and optional Redis for Kubernetes.
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+

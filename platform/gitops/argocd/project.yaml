@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: resume-ai
+  namespace: argocd
+spec:
+  description: AI Resume Analyzer project
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: resume-ai-staging
+      server: https://kubernetes.default.svc
+    - namespace: resume-ai-prod
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+

@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: resume-ai-staging
+  namespace: argocd
+spec:
+  project: resume-ai
+  source:
+    repoURL: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO.git
+    targetRevision: main
+    path: platform/helm/resume-ai
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-staging.yaml
+      parameters:
+        - name: api.image.repository
+          value: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-api
+        - name: web.image.repository
+          value: ghcr.io/YOUR_GITHUB_USERNAME/YOUR_REPO/resume-ai-web
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: resume-ai-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
