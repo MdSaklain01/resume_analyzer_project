@@ -15,9 +15,9 @@ spec:
         - values-prod.yaml
       parameters:
         - name: api.image.repository
-          value: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-api
+          value: ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-api
         - name: web.image.repository
-          value: ghcr.io/MdSaklain01/Resume_Analyzer_Project/resume-ai-web
+          value: ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-web
   destination:
     server: https://kubernetes.default.svc
     namespace: resume-ai-prod
