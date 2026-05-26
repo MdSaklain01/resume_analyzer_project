@@ -38,8 +38,8 @@ jobs:
           context: apps/resume-ai-api
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/resume-ai-api:${{ steps.meta.outputs.tag }}
-            ghcr.io/${{ github.repository }}/resume-ai-api:${{ steps.meta.outputs.extra }}
+            ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-api:${{ steps.meta.outputs.tag }}
+            ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-api:${{ steps.meta.outputs.extra }}
 
       - name: Build and push frontend
         uses: docker/build-push-action@v6
@@ -47,5 +47,5 @@ jobs:
           context: apps/resume-ai-web
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/resume-ai-web:${{ steps.meta.outputs.tag }}
-            ghcr.io/${{ github.repository }}/resume-ai-web:${{ steps.meta.outputs.extra }}
+            ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-web:${{ steps.meta.outputs.tag }}
+            ghcr.io/mdsaklain01/resume_analyzer_project/resume-ai-web:${{ steps.meta.outputs.extra }}
