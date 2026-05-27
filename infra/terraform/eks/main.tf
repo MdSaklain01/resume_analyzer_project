@@ -57,7 +57,10 @@ module "eks" {
     coredns                = {}
     eks-pod-identity-agent = {}
     kube-proxy             = {}
-    vpc-cni                = {}
+    vpc-cni                = {
+      before_compute            = true # Installs BEFORE nodes try to boot
+      attach_into_node_iam_role = true # The magic bullet for node networking permissions
+    }
   }
 
   eks_managed_node_groups = {
@@ -67,6 +70,7 @@ module "eks" {
       desired_size   = var.node_desired_size
       instance_types = var.node_instance_types
       capacity_type  = "ON_DEMAND"
+      disk_size     = 30
     }
   }
 
@@ -93,4 +97,3 @@ resource "helm_release" "argocd" {
 
   depends_on = [module.eks]
 }
-

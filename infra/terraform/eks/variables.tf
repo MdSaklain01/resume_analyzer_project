@@ -25,7 +25,7 @@ variable "cluster_version" {
 variable "node_instance_types" {
   description = "EC2 instance types for worker nodes."
   type        = list(string)
-  default     = ["t3.medium"]
+  default     = ["t3.small"]
 }
 
 variable "node_min_size" {
@@ -35,12 +35,12 @@ variable "node_min_size" {
 
 variable "node_desired_size" {
   type    = number
-  default = 2
+  default = 1
 }
 
 variable "node_max_size" {
   type    = number
-  default = 3
+  default = 1
 }
 
 variable "argocd_chart_version" {
